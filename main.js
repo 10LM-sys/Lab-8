@@ -82,10 +82,8 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   messageElement.textContent = "✅ Your message has been sent successfully!";
   messageElement.style.display = "block";
 
-  // مسح البيانات بعد الإرسال
   this.reset();
 
-  // إخفاء الرسالة بعد 3 ثواني
   setTimeout(() => {
     messageElement.style.display = "none";
   }, 3000);
