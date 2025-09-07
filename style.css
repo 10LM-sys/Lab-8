@@ -13,7 +13,6 @@
   --transition: 200ms ease; /* Custom property: global transition timing */
 }
 
-/* Light theme overrides */
 body.theme-light {
   --bg: #f8fafc;
   --surface: #ffffff;
@@ -24,7 +23,6 @@ body.theme-light {
   --shadow: 0 12px 24px rgba(2, 6, 23, 0.08);
 }
 
-/* Dark theme */
 body.theme-dark {
   --bg: #0f172a;
   --surface: #111827;
@@ -200,16 +198,16 @@ main {
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  top: -205px; /* تطلع فوق شويه */
+  top: -205px;
 }
 
 .hero-visual img {
-  max-width: 210px; /* نفس الحجم اللي في اللينك */
+  max-width: 210px;
   width: 155%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform var(--transition);
-  transform: translateX(670px); /* تتحرك يمين */
+  transform: translateX(670px);
 }
 
 .hero-visual img:hover {
@@ -217,7 +215,6 @@ main {
 }
 
 
-/* Contact Form Styling */
 .contactForm {
   display: flex;
   flex-direction: column;
@@ -287,9 +284,8 @@ footer small {
   color: var(--text);
 }
 
-/* Features Section Spacing */
 #features {
-  padding: 1rem 4; /* مسافة فوق وتحت */
+  padding: 1rem 4;/
 }
 
 html {
@@ -361,7 +357,7 @@ footer small {
 }
 
 .social-links img {
-  width: 24px; /* تصغير حجم الأيقونات */
+  width: 24px; 
   height: 24px;
   transition: transform 0.3s ease;
 }
@@ -382,5 +378,5 @@ footer small {
 }
 
 .social-links a:hover::after {
-  width: 100%; /* يظهر الخط عند الـ hover */
+  width: 100%;
 }
