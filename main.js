@@ -77,7 +77,7 @@ function hideError(fieldId) {
 }
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // منع الريلود
+  e.preventDefault();
   const messageElement = document.getElementById("formMessage");
   messageElement.textContent = "✅ Your message has been sent successfully!";
   messageElement.style.display = "block";
