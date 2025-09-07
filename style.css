@@ -1,0 +1,386 @@
+:root {
+  --bg: #0f172a; /* Custom property: default page background color (slate-900) */
+  --surface: #111827; /* Custom property: surface color for cards/sections (gray-900) */
+  --text: #e5e7eb; /* Custom property: base text color (gray-200) */
+  --muted: #9ca3af; /* Custom property: dimmed text color (gray-400) */
+  --primary: #2563eb; /* Custom property: primary brand color (blue-600) */
+  --primary-contrast: #ffffff; /* Custom property: legible text color on primary backgrounds */
+  --ring: rgba(37, 99, 235, 0.5); /* Custom property: focus ring glow color */
+  --radius: 16px; /* Custom property: base corner radius used across UI */
+  --maxw: 1100px; /* Custom property: max readable content width */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35); /* Custom property: soft elevated shadow */
+  --gap: 1rem; /* Custom property: consistent spacing token */
+  --transition: 200ms ease; /* Custom property: global transition timing */
+}
+
+/* Light theme overrides */
+body.theme-light {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0b1220;
+  --muted: #475569;
+  --primary: #2563eb;
+  --ring: rgba(37, 99, 235, 0.35);
+  --shadow: 0 12px 24px rgba(2, 6, 23, 0.08);
+}
+
+/* Dark theme */
+body.theme-dark {
+  --bg: #0f172a;
+  --surface: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary-contrast: #0f172a;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  position: sticky;
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  top: 0;
+  z-index: 50;
+  background-color: var(--primary-contrast);
+  border-bottom: 1px solid black;
+}
+
+.nav {
+  align-items: center;
+  gap: var(--gap);
+  padding: 0.75rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand_logo {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background-color: #2563eb;
+  box-shadow: var(--shadow);
+}
+
+.actions {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  float: right;
+  clear: auto;
+  margin-top: 0;
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition),
+    box-shadow var(--transition) filter var(--transition);
+  box-shadow: 0 6px 14px var(--muted);
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px var(--muted);
+}
+
+.btn.outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid currentColor;
+}
+
+main {
+  flex: 1;
+}
+
+.hero {
+  padding: 4rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.hero p {
+  margin: 1rem 0 2rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  gap: 5px;
+  padding: 2rem 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid black;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  transition: translate var(--transition) border-color var(--transition);
+  translate: 0 0;
+}
+
+.card:hover {
+  border-color: var(--primary);
+  translate: 0 -4px;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  top: -205px; /* تطلع فوق شويه */
+}
+
+.hero-visual img {
+  max-width: 210px; /* نفس الحجم اللي في اللينك */
+  width: 155%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+  transform: translateX(670px); /* تتحرك يمين */
+}
+
+.hero-visual img:hover {
+  transform: translateX(670px); scale(1.03);
+}
+
+
+/* Contact Form Styling */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.field input {
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--muted);
+  font-size: 1rem;
+  background: var(--primary-contrast);
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.field p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.contactForm .btn {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+footer {
+  background: var(--surface);
+  padding: 1rem 0;
+  text-align: center;
+  border-top: 1px solid var(--muted);
+}
+
+footer small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+/* Features Section Spacing */
+#features {
+  padding: 1rem 4; /* مسافة فوق وتحت */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: var(--message-bg);
+  color: var(--text);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.form-message {
+  color: var(--primary);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  display: none;
+}
+
+footer {
+  background: var(--surface);
+  padding: 1.5rem 0;
+  text-align: center;
+  border-top: 1px solid var(--muted);
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer small {
+  color: var(--muted);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: inline-block;
+  position: relative;
+}
+
+.social-links img {
+  width: 24px; /* تصغير حجم الأيقونات */
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.social-links a:hover img {
+  transform: scale(1.1);
+}
+
+.social-links a:hover::after {
+  width: 100%; /* يظهر الخط عند الـ hover */
+}
